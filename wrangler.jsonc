@@ -1,0 +1,12 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+{
+  "name": "bio",
+  "compatibility_date": "2025-12-04",
+  "assets": {
+	"directory": "./dist"
+  },
+  "workers_dev": false
+}

@@ -1,0 +1,53 @@
+---
+import { Icon } from 'astro-icon/components'
+import type { Link } from '../const'
+
+interface Props {
+  link: Link
+}
+
+const { link } = Astro.props
+---
+
+<a
+  href={link.url}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="group block w-full rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition-all duration-200 hover:bg-gray-50 dark:border-white/5 dark:bg-[#1a1a1a] dark:shadow-none dark:hover:bg-[#252525]"
+>
+  <div class="flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      {/* Icon */}
+      {
+        link.icon && (
+          <Icon 
+            name={link.icon} 
+            class="h-8 w-8 text-gray-900 transition-transform duration-200 group-hover:scale-110 dark:text-white" 
+          />
+        )
+      }
+
+      {/* Text Content */}
+      <div class="flex flex-col">
+        <span
+          class="text-lg leading-tight font-bold text-gray-900 dark:text-white"
+          >{link.title}</span
+        >
+        {
+          link.subtitle && (
+            <span class="text-sm text-gray-500 dark:text-gray-400">
+              {link.subtitle}
+            </span>
+          )
+        }
+      </div>
+    </div>
+
+    {/* Right Arrow */}
+    <div
+      class="text-gray-400 transition-all duration-200 group-hover:translate-x-1 group-hover:text-gray-900 dark:text-gray-500 dark:group-hover:text-white"
+    >
+      <Icon name="lucide:arrow-right" class="h-5 w-5" />
+    </div>
+  </div>
+</a>

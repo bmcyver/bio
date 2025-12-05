@@ -1,0 +1,39 @@
+---
+import LinkCard from '../components/LinkCard.astro'
+import ProfileCard from '../components/ProfileCard.astro'
+import { profile } from '../const'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title={profile.name}>
+  <div
+    class="relative min-h-screen overflow-x-hidden bg-gray-50 font-sans text-gray-900 transition-colors duration-300 selection:bg-blue-500/30 dark:bg-[#050505] dark:text-white"
+  >
+    {/* Background Gradient */}
+    <div
+      class="pointer-events-none absolute top-0 left-0 z-0 h-[500px] w-full bg-gradient-to-b from-blue-500/5 to-transparent dark:from-blue-900/20"
+    >
+    </div>
+
+    <main class="relative z-10 mx-auto max-w-3xl px-4 py-20">
+      <ProfileCard />
+
+      {/* Links Grid */}
+      <div class="mb-12 grid grid-cols-1 gap-3 md:grid-cols-2">
+        {
+          profile.links.map((link) => (
+            <div
+              class={link.halfWidth ? 'col-span-1' : 'col-span-1 md:col-span-2'}
+            >
+              <LinkCard link={link} />
+            </div>
+          ))
+        }
+      </div>
+
+      {/* Footer */}
+      <footer class="mb-8 text-center text-sm text-gray-400 dark:text-gray-600">
+      </footer>
+    </main>
+  </div>
+</Layout>
