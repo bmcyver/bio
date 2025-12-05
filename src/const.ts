@@ -14,7 +14,7 @@ export interface SocialButton {
 
 export const profile = {
   name: 'bmcyver',
-  bio: 'I do web',
+  bio: 'Under construction... :)',
   location: 'South Korea',
   avatar: 'https://ui-avatars.com/api/?name=bmcyver&background=random&size=256',
   buttons: [
