@@ -25,7 +25,7 @@ export const profile = {
     },
     {
       title: 'Discord',
-      url: '#',
+      url: 'http://discord.com/users/967304143981117450',
       icon: 'simple-icons:discord',
     },
   ] as SocialButton[],
@@ -37,24 +37,18 @@ export const profile = {
       icon: 'lucide:book-open',
     },
     {
-      title: 'Twitter (X)',
-      subtitle: '@bmcyver',
-      url: 'https://twitter.com',
-      icon: 'simple-icons:x',
-    },
-    {
       title: 'GitHub',
       subtitle: 'github.com/bmcyver',
       url: 'https://github.com/bmcyver',
       icon: 'simple-icons:github',
       halfWidth: true,
     },
-    {
-      title: 'Portfolio',
-      subtitle: 'bmcyver.dev',
-      url: 'https://bmcyver.dev',
-      icon: 'lucide:briefcase',
-      halfWidth: true,
-    },
+    // {
+    //   title: 'Portfolio',
+    //   subtitle: 'bmcyver.dev',
+    //   url: 'https://bmcyver.dev',
+    //   icon: 'lucide:briefcase',
+    //   halfWidth: true,
+    // },
   ] as Link[],
 }
