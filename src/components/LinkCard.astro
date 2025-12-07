@@ -17,7 +17,7 @@ const { link, animation } = Astro.props
 >
   <div class="absolute left-5 flex items-center justify-center">
     {link.icon && <Icon name={link.icon} class="h-5 w-5" />}
-    {link.iconSvg && <div class="h-5 w-5" set:html={link.iconSvg} />}
+    {link.iconSvg && <img src={link.iconSvg} alt={link.title} class="h-5 w-5" />}
   </div>
   {link.title}
 </a>

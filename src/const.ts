@@ -25,12 +25,17 @@ export const profile = {
     {
       title: 'Blog',
       url: 'https://blog.bmcyver.dev',
-      icon: 'lucide:file',
+      icon: 'lucide:library-big',
     },
     {
       title: 'GitHub',
       url: 'https://github.com/bmcyver',
       icon: 'fa-brands:github',
     },
+    {
+      title: 'Dreamhack',
+      url: 'https://dreamhack.io/users/29497',
+      iconSvg: '/dreamhack.svg',
+    }
   ] as Link[],
 }
