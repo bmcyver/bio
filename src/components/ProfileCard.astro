@@ -3,60 +3,42 @@ import { Icon } from 'astro-icon/components'
 import { profile } from '../const'
 ---
 
-<div
-  class="relative mb-12 rounded-3xl border border-gray-200 bg-white p-8 pt-20 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] transition-colors duration-300 dark:border-white/5 dark:bg-[#111111] dark:shadow-2xl"
->
-  {/* Avatar */}
-  <div class="absolute -top-16 left-1/2 -translate-x-1/2">
-    <div class="group relative">
-      <div
-        class="absolute inset-0 rounded-full bg-blue-500 opacity-10 blur-2xl transition-opacity duration-500 group-hover:opacity-30"
-      >
-      </div>
-      <img
-        src={profile.avatar}
-        alt={profile.name}
-        class="relative z-10 h-32 w-32 rounded-full border-[6px] border-white object-cover shadow-lg transition-colors duration-300 dark:border-[#111111]"
-      />
-    </div>
+<div class="mt-14 mb-0 grid place-content-center">
+  <div
+    class="relative flex h-32 w-32 items-center justify-center rounded-full bg-transparent"
+  >
+    <img
+      src={profile.avatar}
+      alt={profile.name}
+      class="bg-background z-10 h-24 w-24 rounded-full object-cover"
+    />
   </div>
+</div>
 
-  <div class="text-center">
-    <h1 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white">
-      {profile.name}
-    </h1>
+<div class="mb-6 grid place-content-center gap-3 px-2 text-center">
+  <h1 class="flex items-center justify-center text-center text-3xl font-bold">
+    {profile.name}
+  </h1>
 
+  <p
+    class="text-foreground/80 mx-auto line-clamp-none max-w-[320px] text-base sm:line-clamp-2 dark:text-gray-400"
+  >
+    {profile.bio}
+  </p>
+
+  <div class="mt-2 flex justify-center gap-4">
     {
-      profile.location && (
-        <div class="mb-3 flex items-center justify-center gap-1.5 text-sm font-medium text-gray-500 dark:text-gray-400">
-          <Icon name="lucide:map-pin" class="h-4 w-4" />
-          <span>{profile.location}</span>
-        </div>
-      )
+      profile.socials.map((social) => (
+        <a
+          href={social.url}
+          target="_blank"
+          class="text-foreground/80 hover:text-primary transition-colors duration-200"
+          aria-label={social.title}
+        >
+          {social.icon && <Icon name={social.icon} class="h-6 w-6" />}
+          {social.iconSvg && <div class="h-6 w-6" set:html={social.iconSvg} />}
+        </a>
+      ))
     }
-
-    <p class="mb-8 font-medium text-gray-600 dark:text-gray-400">
-      {profile.bio}
-    </p>
-
-    {/* Action Buttons */}
-    <div class="flex flex-wrap justify-center gap-3">
-      {
-        profile.buttons.map((btn) => (
-          <a
-            href={btn.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group flex items-center gap-2 rounded-lg border-[0.75px] border-gray-200 bg-[#f8f8f8] px-4 py-2 text-sm font-medium text-gray-600 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-100 hover:text-gray-900 hover:shadow-md dark:border-white/10 dark:bg-[#1a1a1a] dark:text-gray-300 dark:hover:bg-[#252525] dark:hover:text-white"
-          >
-            <Icon
-              name={btn.icon}
-              class="h-4 w-4 transition-transform duration-200 group-hover:scale-110"
-            />
-            <span>{btn.title}</span>
-          </a>
-        ))
-      }
-    </div>
   </div>
 </div>

@@ -4,50 +4,20 @@ import type { Link } from '../const'
 
 interface Props {
   link: Link
+  animation?: string
 }
 
-const { link } = Astro.props
+const { link, animation } = Astro.props
 ---
 
 <a
   href={link.url}
   target="_blank"
-  rel="noopener noreferrer"
-  class="group block w-full rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition-all duration-200 hover:bg-gray-50 dark:border-white/5 dark:bg-[#1a1a1a] dark:shadow-none dark:hover:bg-[#252525]"
+  class={`w-full max-w-[420px] transition mx-auto h-16 md:h-14 bg-card border flex items-center justify-center rounded-lg hover:bg-primary hover:text-white hover:scale-[0.98] relative dark:hover:text-black text-foreground ${animation}`}
 >
-  <div class="flex items-center justify-between">
-    <div class="flex items-center gap-4">
-      {/* Icon */}
-      {
-        link.icon && (
-          <Icon 
-            name={link.icon} 
-            class="h-8 w-8 text-gray-900 transition-transform duration-200 group-hover:scale-110 dark:text-white" 
-          />
-        )
-      }
-
-      {/* Text Content */}
-      <div class="flex flex-col">
-        <span
-          class="text-lg leading-tight font-bold text-gray-900 dark:text-white"
-          >{link.title}</span
-        >
-        {
-          link.subtitle && (
-            <span class="text-sm text-gray-500 dark:text-gray-400">
-              {link.subtitle}
-            </span>
-          )
-        }
-      </div>
-    </div>
-
-    {/* Right Arrow */}
-    <div
-      class="text-gray-400 transition-all duration-200 group-hover:translate-x-1 group-hover:text-gray-900 dark:text-gray-500 dark:group-hover:text-white"
-    >
-      <Icon name="lucide:arrow-right" class="h-5 w-5" />
-    </div>
+  <div class="absolute left-5 flex items-center justify-center">
+    {link.icon && <Icon name={link.icon} class="h-5 w-5" />}
+    {link.iconSvg && <div class="h-5 w-5" set:html={link.iconSvg} />}
   </div>
+  {link.title}
 </a>
