@@ -13,7 +13,7 @@ const { link, animation } = Astro.props
 <a
   href={link.url}
   target="_blank"
-  class={`w-full max-w-[420px] transition mx-auto h-16 md:h-14 bg-card/60 backdrop-blur-sm border flex items-center justify-center rounded-lg hover:bg-primary hover:text-white hover:scale-[0.98] relative dark:hover:text-black text-foreground ${animation}`}
+  class={`w-full max-w-[420px] transition mx-auto h-16 md:h-14 bg-transparent backdrop-blur-sm border flex items-center justify-center rounded-lg hover:bg-primary hover:text-white hover:scale-[0.98] relative dark:hover:text-black text-foreground ${animation}`}
 >
   <div class="absolute left-5 flex items-center justify-center">
     {link.icon && <Icon name={link.icon} class="h-5 w-5" />}
