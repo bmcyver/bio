@@ -36,6 +36,6 @@ export const profile = {
       title: 'Dreamhack',
       url: 'https://dreamhack.io/users/29497',
       iconSvg: '/dreamhack.svg',
-    }
+    },
   ] as Link[],
 }
