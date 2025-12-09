@@ -3,10 +3,12 @@
  * https://developers.cloudflare.com/workers/wrangler/configuration/
  */
 {
+  "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "bio",
   "compatibility_date": "2025-12-04",
   "assets": {
-	"directory": "./dist"
+    "directory": "./dist",
+    "not_found_handling": "404-page"
   },
   "workers_dev": false
 }
